@@ -4,10 +4,10 @@ import cn.hutool.core.collection.CollUtil;
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.support.ExcelTypeEnum;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
-import org.springframework.util.ObjectUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
@@ -52,13 +52,13 @@ public class ExcelUtils {
         //连接表头
         StringBuilder stringBuilder = new StringBuilder();
         LinkedHashMap<Integer, String> headerMap = list.get(0);
-        List<String> headerList = headerMap.values().stream().filter(ObjectUtils::isEmpty).collect(Collectors.toList());
+        List<String> headerList = headerMap.values().stream().filter(ObjectUtils::isNotEmpty).collect(Collectors.toList());
         stringBuilder.append(StringUtils.join(headerList, ",")).append("\n");
 
         //连接每行数据
         for (int i = 1; i<list.size(); i++) {
             LinkedHashMap<Integer, String> dataMap = list.get(i);
-            List<String> dataList = dataMap.values().stream().filter(ObjectUtils::isEmpty).collect(Collectors.toList());
+            List<String> dataList = dataMap.values().stream().filter(ObjectUtils::isNotEmpty).collect(Collectors.toList());
             stringBuilder.append(StringUtils.join(dataList, ",")).append("\n");
         }
         return stringBuilder.toString();
