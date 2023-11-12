@@ -9,5 +9,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 * @createDate 2023-10-25 20:06:48
 */
 public interface ChartService extends IService<Chart> {
-
+     void handleChartUpdateError(long chartId, String execMessage);
+     String buildUserInput(Chart chart);
 }
