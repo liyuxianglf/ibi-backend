@@ -9,6 +9,9 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 自定义线程池配置
+ */
 @Configuration
 public class ThreadPoolExecutorConfig {
 
@@ -17,4 +20,5 @@ public class ThreadPoolExecutorConfig {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, 4, 100, TimeUnit.SECONDS, new ArrayBlockingQueue<>(20));
         return threadPoolExecutor;
     }
+
 }

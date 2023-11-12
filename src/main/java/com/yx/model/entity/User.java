@@ -7,7 +7,7 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 用户
+ * 用户表
  * @TableName user
  */
 @TableName(value ="user")

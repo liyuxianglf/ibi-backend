@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
-* @author lige
-* @description 针对表【user(用户)】的数据库操作Service
-* @createDate 2023-10-25 20:06:48
+ * 用户服务
 */
 public interface UserService extends IService<User> {
     /**
@@ -36,15 +34,6 @@ public interface UserService extends IService<User> {
      * @return 脱敏后的用户信息
      */
     LoginUserVO userLogin(String userAccount, String userPassword, HttpServletRequest request);
-
-    /**
-     * 用户登录（微信开放平台）
-     *
-     * @param wxOAuth2UserInfo 从微信获取的用户信息
-     * @param request
-     * @return 脱敏后的用户信息
-     */
-
 
     /**
      * 获取当前登录用户

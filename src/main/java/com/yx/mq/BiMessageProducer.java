@@ -5,8 +5,12 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
+/**
+ * 用于向消息队列中发送消息
+ */
 @Component
 public class BiMessageProducer {
+
     @Resource
     RabbitTemplate rabbitTemplate;
 

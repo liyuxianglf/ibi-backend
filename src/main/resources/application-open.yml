@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: ibi-backend-master
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  session:
+    timeout: 2592000
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: #修改为自己的
+    username: #修改为自己的
+    password: #修改为自己的
+  redis:
+    port: #修改为自己的
+    host: #修改为自己的
+    password: #修改为自己的
+    database: #修改为自己的
+  rabbitmq:
+    host: #修改为自己的
+    port: #修改为自己的
+    password: #修改为自己的
+    username: #修改为自己的
+  servlet:
+    # 文件上传
+    multipart:
+      # 大小限制
+      max-file-size: 10MB
+server:
+  address: 0.0.0.0
+  port: 8080
+  servlet:
+    context-path: /api
+    # cookie 30 天过期
+    session:
+      cookie:
+        max-age: 2592000
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDelete # 全局逻辑删除的实体字段名
+      logic-delete-value: 1 # 逻辑已删除值（默认为 1）
+      logic-not-delete-value: 0 # 逻辑未删除值（默认为 0）
+yuapi:
+  client:
+    access-key: #修改为自己的
+    secret-key: #修改为自己的
