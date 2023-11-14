@@ -22,9 +22,9 @@
 
 中间件
 - MySQL + Redis + RabbitMQ + Nginx
-### 六、后端部署
+### 七、后端部署
 1. 执行安装后端所需依赖： maven install
 2. 使用根路径下的/sql/create_table.sql创建数据库和对应的表。
 3. 修改application-open.xml文件，将Mysql、Redis、RabbitMQ的地址改为自己数据库的地址。
-### 七、界面展示
+### 八、界面展示
 ![输入图片说明](https://foruda.gitee.com/images/1699934338895684190/83ff6c87_12276829.png "屏幕截图")
