@@ -58,8 +58,6 @@ public class ChartServiceImpl extends ServiceImpl<ChartMapper, Chart>
     @Resource
     UserService userService;
 
-    @Resource
-    ChartService chartService;
 
     @Resource
     ThreadPoolExecutor threadPoolExecutor;
@@ -133,8 +131,9 @@ public class ChartServiceImpl extends ServiceImpl<ChartMapper, Chart>
         chart.setChartType(chartType);
         chart.setGenChart(genChart);
         chart.setGenResult(genResult);
+        chart.setStatus(ChartStatusEnum.SUCCESS.getValue());
         chart.setUserId(userId);
-        boolean save = chartService.save(chart);
+        boolean save = this.save(chart);
         ThrowUtils.throwIf(!save, ErrorCode.SYSTEM_ERROR, "图表保存失败");
         BiResponse biResponse = new BiResponse();
         biResponse.setGenChart(genChart);
@@ -203,7 +202,7 @@ public class ChartServiceImpl extends ServiceImpl<ChartMapper, Chart>
         chart.setChartType(chartType);
         chart.setStatus(ChartStatusEnum.WAIT.getValue());
         chart.setUserId(loginUser.getId());
-        boolean saveResult = chartService.save(chart);
+        boolean saveResult = this.save(chart);
         ThrowUtils.throwIf(!saveResult, ErrorCode.SYSTEM_ERROR, "图表保存失败");
 
 
@@ -212,7 +211,7 @@ public class ChartServiceImpl extends ServiceImpl<ChartMapper, Chart>
                 Chart updateChart = new Chart();
                 updateChart.setId(chart.getId());
                 updateChart.setStatus(ChartStatusEnum.RUNNING.getValue());
-                boolean b = chartService.updateById(updateChart);
+                boolean b = this.updateById(updateChart);
                 if (!b) {
                     handleChartUpdateError(chart.getId(), "更新图表执行中状态失败");
                     return;
@@ -231,7 +230,7 @@ public class ChartServiceImpl extends ServiceImpl<ChartMapper, Chart>
                 updateChartResult.setGenChart(genChart);
                 updateChartResult.setGenResult(genResult);
                 updateChartResult.setStatus(ChartStatusEnum.SUCCESS.getValue());
-                boolean updateResult = chartService.updateById(updateChartResult);
+                boolean updateResult = this.updateById(updateChartResult);
                 if (!updateResult) {
                     handleChartUpdateError(chart.getId(), "更新图表成功状态失败");
                 }
@@ -310,7 +309,7 @@ public class ChartServiceImpl extends ServiceImpl<ChartMapper, Chart>
         chart.setChartType(chartType);
         chart.setStatus(ChartStatusEnum.WAIT.getValue());
         chart.setUserId(loginUser.getId());
-        boolean saveResult = chartService.save(chart);
+        boolean saveResult = this.save(chart);
         ThrowUtils.throwIf(!saveResult, ErrorCode.SYSTEM_ERROR, "图表保存失败");
 
         Long chartId = chart.getId();
