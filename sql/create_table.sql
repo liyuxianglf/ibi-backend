@@ -1,4 +1,4 @@
-# 建表脚本
+--建表脚本
 
 -- 创建库
 create database if not exists ibi;
