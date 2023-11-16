@@ -27,7 +27,7 @@
 ### 八、后端部署
 1. 执行安装后端所需依赖： maven install
 2. 使用根路径下的/sql/create_table.sql创建数据库和对应的表。
-3. 修改application-open.xml文件，将Mysql、Redis、RabbitMQ的地址改为自己数据库的地址。
+3. 修改application-open.xml文件，将Mysql、Redis、RabbitMQ的地址改为自己的地址，并将AI接口的秘钥改为自己的。
 ### 九、界面展示
 ![输入图片说明](readme/image/6a878125f352f696adcb1db88587683.png)
 图表对应的xlsx文件示例
