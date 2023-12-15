@@ -8,7 +8,7 @@
 1. 智能数据分析：用户通过输入分析目标和导入原始数据便可以生成分析结论和数据图表。
 2. 我的图表：用户可以查看自己之前生成的图表，支持按图表名称模糊搜索。
 ### 五、智能分析业务功能实现流程图
-![输入图片说明](https://foruda.gitee.com/images/1699933590044117728/0a520305_12276829.jpeg "智能BI平台分析流程.jpg")
+![图片](https://github.com/liyuxianglf/ibi-backend/assets/151162920/127ac50f-0eb3-44e9-8c33-de16f3caace4)
 ### 六、项目亮点
 1. (业务流程)后端自定义 Prompt 预设模板并封装用户输入的数据和分析诉求，通过对接 AIGC 接口生成可视化图表 json 配置和分析结论，返回给前端渲染。
 2. 由于AIGC 的输入 Token 限制，使用 Easy Excel 解析用户上传的 XLSX 表格数据文件并压缩为 CSV，实测提高了 20%的单次输入数据量、并节约了成本。
@@ -29,6 +29,8 @@
 2. 使用根路径下的/sql/create_table.sql创建数据库和对应的表。
 3. 修改application-open.xml文件，将Mysql、Redis、RabbitMQ的地址改为自己的地址，并将AI接口的秘钥改为自己的。
 ### 九、界面展示
-![输入图片说明](readme/image/6a878125f352f696adcb1db88587683.png)
+![1702630076091](https://github.com/liyuxianglf/ibi-backend/assets/151162920/2653d3ff-4322-4b59-9564-c239aeab749f)
+
 图表对应的xlsx文件示例
-![输入图片说明](readme/image/%E5%9B%BE%E7%89%87.png)
+![1702630107750](https://github.com/liyuxianglf/ibi-backend/assets/151162920/da3ba978-8cb6-456b-9ba0-330b092b0596)
+
